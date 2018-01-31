@@ -11,7 +11,14 @@ express 前端框架的一个demo  路由和接口的测试
   
   如果不想安装可以修改package.json 里边的start的值  将nodemon改为node 即可
 
-接着。。。。。
+接着......
+
 `npm install`
 
-3.  npm start					
+
+`npm start`
+
+默认端口为3000
+
+`http://localhost:3000/`
+				
