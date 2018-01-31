@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+  	<h1 id="province"></h1>
+  	<h6 id="city"></h6>	
+
+    <input type="text" placeholder="请输入姓名" id="name">
+    <input type="text" placeholder="请输入密码" id="pwd">
+    <a href="javascript:;" id="sub">提交</a>
+
+  	<script src="js/jquery-1.10.1.min.js"></script>		
+    <script>
+    	$(function(){ 
+    		$.ajax({ 
+                url: '/api/getData/baseInfo',
+                type: 'get',
+                success: function(data){
+
+                    console.log(data);
+
+                    var data=data.data;
+
+                    $('#province').html(data.province)
+                    $('#city').html(data.city)
+                },
+                error: function(data){ 
+                    console.log('data.msg');
+                }
+            }); 
+
+	        $("#sub").click(function(){ 
+
+
+	    		var username = $('#name').val();
+	    		var password = $('#pwd').val();
+	            
+	            var data = {"name":username,"pwd":password};
+
+	            $.ajax({ 
+	                url: '/api/login',
+	                type: 'post',
+	                data: data,
+	                success: function(data){ 
+
+	                   console.log(data);
+	                },
+	                error: function(data){ 
+
+	                   console.log('err');
+	                }
+	            }); 
+	        });
+    	});
+    </script>
+  </body>
+</html>
