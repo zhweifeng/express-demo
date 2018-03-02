@@ -11,8 +11,7 @@ router.get('/login', function(req, res, next) {
     var data = req.query;
 
     if(data){
-    	console.log()
-        console.log(data)
+        console.log('地址栏后边的数据： '+data)
     }
 
     res.render('post', { title: 'Express' });
